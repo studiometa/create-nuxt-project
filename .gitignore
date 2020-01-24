@@ -1,0 +1,21 @@
+# OS et IDE files
+.DS_Store
+.idea/
+.vscode/
+*.sublime-projet
+*.sublime-workspace
+*.log
+node_modules/
+
+# Logs
+/logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Template unwanted files
+/template/.nuxt/
+/template/dist/
+/template/package-lock.json
+/template/static/sw*
