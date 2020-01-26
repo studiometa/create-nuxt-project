@@ -1,6 +1,8 @@
 module.exports = {
   projects: [
     {
+      displayName: 'Test',
+      setupFiles: ['<rootDir>/test/__setup__/require-context.js'],
       moduleNameMapper: {
         '^@/(.*)$': '<rootDir>/$1',
         '^~/(.*)$': '<rootDir>/$1',
@@ -17,13 +19,28 @@ module.exports = {
     {
       runner: 'jest-runner-eslint',
       displayName: 'ESLint',
-      testMatch: ['<rootDir>/**/*.vue', '<rootDir>/**/*.js', '!<rootDir>/dist'],
+      moduleFileExtensions: ['js', 'vue'],
+      testMatch: [
+        '<rootDir>/components/**/*.vue',
+        '<rootDir>/layouts/**/*.vue',
+        '<rootDir>/pages/**/*.vue',
+        '<rootDir>/middleware/**/*.js',
+        '<rootDir>/plugins/**/*.js',
+        '<rootDir>/store/**/*.js',
+        '<rootDir>/test/**/*.js',
+        '<rootDir>/utils/**/*.js',
+      ],
     },
     {
       runner: 'jest-runner-stylelint',
       displayName: 'StyleLint',
       moduleFileExtensions: ['css', 'scss', 'vue'],
-      testMatch: ['<rootDir>/**/*.vue', '<rootDir>/**/*.scss', '!<rootDir>/dist'],
+      testMatch: [
+        '<rootDir>/components/**/*.vue',
+        '<rootDir>/layouts/**/*.vue',
+        '<rootDir>/pages/**/*.vue',
+        '<rootDir>/assets/scss/**/*.scss',
+      ],
     },
   ],
 };

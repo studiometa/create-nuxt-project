@@ -17,5 +17,5 @@ yarn-error.log*
 # Template unwanted files
 /template/.nuxt/
 /template/dist/
-/template/package-lock.json
+/template/package*.json
 /template/static/sw*

@@ -27,9 +27,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [
-    '~/plugins/vue-icon',
-  ],
+  plugins: ['~/plugins/vue-icon'],
   /*
    ** Nuxt.js dev-modules
    */
