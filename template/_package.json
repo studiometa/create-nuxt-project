@@ -1,0 +1,64 @@
+{
+  "name": "<%= name %>",
+  "version": "1.0.0",
+  "description": "<%= description %>",
+  "author": "Studio Meta <agence@studiometa.fr> (https://www.studiometa.fr)",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "lint": "npm run lint:scripts && npm run lint:styles",
+    "lint:scripts": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "lint:styles": "stylelint '**/*.scss' '**/*.vue' --ignore-path .gitignore",
+    "test": "jest"
+  },
+  "lint-staged": {
+    "*.{js,vue}": "npm run lint:scripts",
+    "*.{scss,vue}": "npm run lint:styles"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "^5.3.6",
+    "@nuxtjs/dotenv": "^1.4.0",
+    "@nuxtjs/pwa": "^3.0.0-0",
+    "nuxt": "^2.0.0",
+    "vue": "^2.6.11"
+  },
+  "devDependencies": {
+    "@nuxtjs/eslint-config": "^1.0.1",
+    "@nuxtjs/eslint-module": "^1.0.0",
+    "@nuxtjs/stylelint-module": "^3.1.0",
+    "@nuxtjs/tailwindcss": "^1.0.0",
+    "@studiometa/eslint-config": "^2.0.3",
+    "@studiometa/prettier-config": "^2.0.0",
+    "@studiometa/stylelint-config": "^1.2.3",
+    "@studiometa/tailwind-config": "^1.0.0-alpha.4",
+    "@vue/test-utils": "^1.0.0-beta.27",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^24.1.0",
+    "babel-plugin-require-context-hook": "^1.0.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-nuxt": ">=0.4.2",
+    "eslint-plugin-prettier": "^3.0.1",
+    "husky": "^2.6.0",
+    "jest": "^24.1.0",
+    "jest-runner-eslint": "^0.7.5",
+    "jest-runner-stylelint": "^2.2.3",
+    "lint-staged": "^8.2.1",
+    "lodash.merge": "^4.6.2",
+    "nuxt-svg-loader": "^1.2.0",
+    "prettier": "^1.19.1",
+    "sass": "^1.25.0",
+    "sass-loader": "^8.0.2",
+    "stylelint": "^10.1.0",
+    "vue-jest": "^4.0.0-0"
+  }
+}
