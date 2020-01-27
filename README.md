@@ -16,7 +16,17 @@ npx @studiometa/create-nuxt-project@alpha <project-name>
 
 ## Documentation
 
-This tool will generate a Nuxt project setup with our favorite tools at [Studio Meta](https://github.com/studiometa). See the [readme.md](./template#readme) file in the template folder for a more detailed documentation.
+This tool will generate a Nuxt project setup with our favorite tools at [Studio Meta](https://github.com/studiometa). It includes:
+
+- The [@nuxtjs/axios](https://axios.nuxtjs.org/) module
+- The [@nuxtjs/dotenv](https://github.com/nuxt-community/dotenv-module) module
+- The [@nuxtjs/pwa](https://pwa.nuxtjs.org/) module
+- [Tailwind CSS](https://tailwindcss.com/) via [@nuxtjs/tailwindcss](https://github.com/nuxt-community/nuxt-tailwindcss) and our custom configuration [@studiometa/tailwind-config](https://github.com/studiometa/tailwind-config)
+- Linting via [ESLint](https://eslint.org/) and [Prettier](https://prettier.io/) with our custom configurations [@studiometa/eslint-config](https://github.com/studiometa/eslint-config) and [@studiometa/prettier-config](https://github.com/studiometa/prettier-config)
+- Linting via [StyleLint](https://stylelint.io/) and [Prettier](https://prettier.io/) with our custom configuration [@studiometa/stylelint-config](https://github.com/studiometa/stylelint-config)
+- Tests with [Jest](https://jestjs.io/) and [@vue/test-utils](https://vue-test-utils.vuejs.org/) 
+- [GitLab CI](https://docs.gitlab.com/ee/ci/) to run tests on GitLab
+
 
 ## Contributing
 
