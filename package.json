@@ -1,6 +1,6 @@
 {
   "name": "@studiometa/create-nuxt-project",
-  "version": "1.0.0-alpha.0",
+  "version": "1.0.0-alpha.1",
   "description": "A generator to kickstart your Nuxt project in a few seconds! ⚡",
   "bin": "cli.js",
   "files": [
