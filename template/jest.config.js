@@ -29,6 +29,7 @@ module.exports = {
         '<rootDir>/store/**/*.js',
         '<rootDir>/test/**/*.js',
         '<rootDir>/utils/**/*.js',
+        '<rootDir>/*.js',
       ],
     },
     {

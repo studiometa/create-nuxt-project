@@ -1,6 +1,6 @@
 {
   "name": "@studiometa/create-nuxt-project",
-  "version": "1.0.0-alpha.0",
+  "version": "1.0.0-alpha.1",
   "description": "A generator to kickstart your Nuxt project in a few seconds! ⚡",
   "bin": "cli.js",
   "files": [
@@ -8,6 +8,14 @@
     "saofile.js",
     "template/"
   ],
+  "scripts": {
+    "lint": "eslint --ext .js,.vue --ignore-path .eslintignore ."
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/studiometa/create-nuxt-project.git"
@@ -34,6 +42,7 @@
     "@studiometa/eslint-config": "^2.0.3",
     "@studiometa/prettier-config": "^2.0.0",
     "eslint": "^6.2.2",
+    "husky": "^4.2.1",
     "prettier": "^1.18.2"
   }
 }

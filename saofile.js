@@ -1,4 +1,3 @@
-const slugify = require('slugify');
 const path = require('path');
 
 module.exports = {
@@ -59,6 +58,26 @@ module.exports = {
         },
       },
     ];
+
+    // Remove GitLab of Github files based on the selected hub
+    if (this.answers.hub.includes('gitlab.com')) {
+      actions.push({
+        type: 'remove',
+        files: '_github/',
+      });
+    } else {
+      actions.push({
+        type: 'remove',
+        files: '.gitlab-ci.yml',
+      });
+
+      actions.push({
+        type: 'move',
+        patterns: {
+          _github: '.github',
+        },
+      });
+    }
 
     return actions;
   },
