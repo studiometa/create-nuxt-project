@@ -25,7 +25,7 @@ This tool will generate a Nuxt project setup with our favorite tools at [Studio 
 - Linting via [ESLint](https://eslint.org/) and [Prettier](https://prettier.io/) with our custom configurations [@studiometa/eslint-config](https://github.com/studiometa/eslint-config) and [@studiometa/prettier-config](https://github.com/studiometa/prettier-config)
 - Linting via [StyleLint](https://stylelint.io/) and [Prettier](https://prettier.io/) with our custom configuration [@studiometa/stylelint-config](https://github.com/studiometa/stylelint-config)
 - Tests with [Jest](https://jestjs.io/) and [@vue/test-utils](https://vue-test-utils.vuejs.org/) 
-- [GitLab CI](https://docs.gitlab.com/ee/ci/) to run tests on GitLab
+- [GitLab CI](https://docs.gitlab.com/ee/ci/) or [Github Actions](https://help.github.com/en/actions/automating-your-workflow-with-github-actions/about-github-actions) to run tests
 
 
 ## Contributing
