@@ -1,4 +1,3 @@
-const slugify = require('slugify');
 const path = require('path');
 
 module.exports = {
