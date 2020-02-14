@@ -37,7 +37,22 @@ module.exports = {
       message: 'Project repository',
       default: ({ name, hub }) => `${hub}/${name}.git`,
     },
+    {
+      name: 'features',
+      message: 'Choose features to add',
+      type: 'checkbox',
+      choices: [{ name: 'i18n', value: 'i18n' }],
+      default: [],
+    },
   ],
+  templateData() {
+    const { features } = this.answers;
+    const i18n = features.includes('i18n');
+
+    return {
+      i18n,
+    };
+  },
   actions() {
     const actions = [
       {
