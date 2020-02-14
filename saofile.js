@@ -112,17 +112,14 @@ module.exports = {
     console.log();
     console.log(chalk`${tab}{bold To get started:}\n`);
 
-    let step = 1;
-
     if (isNewFolder) {
-      console.log(chalk`${tab}${step}. Go in your project's directory`);
+      console.log(chalk`${tab}Go in your project's directory`);
       console.log(chalk`${tab}{cyan cd ${relativeOutFolder}}\n`);
-
-      step += 1;
     }
-    console.log(chalk`${tab}${step}. Create your .env file and fill it`);
+
+    console.log(chalk`${tab}Create your .env file and fill it`);
     console.log(chalk`${tab}{cyan cp .env.example .env}\n`);
-    console.log(chalk`${tab}${step + 1}. Start the development server`);
+    console.log(chalk`${tab}Start the development server`);
     console.log(chalk`${tab}{cyan npm run dev}\n`);
     console.log(chalk`${tab}🎊 {bold Happy coding!}\n`);
   },
