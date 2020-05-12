@@ -9,13 +9,15 @@ module.exports = {
   },
   moduleFileExtensions: ['js', 'vue', 'json'],
   transform: {
-    '^.+\\.js$': 'babel-jest',
+    '^.+\\.svg$': '<rootDir>/tests/unit/__setup__/svg-to-vue-template-compiler.js',
     '.*\\.(vue)$': 'vue-jest',
+    '^.+\\.js$': 'babel-jest',
   },
   collectCoverage: true,
   collectCoverageFrom: [
     '<rootDir>/components/**/*.vue',
     '<rootDir>/pages/**/*.vue',
-    '<rootDir>/layout/**/*.vue',
+    '<rootDir>/layouts/**/*.vue',
+    '<rootDir>/utils/**/*.js',
   ],
 };
