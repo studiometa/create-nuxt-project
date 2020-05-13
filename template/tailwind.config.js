@@ -18,7 +18,7 @@ module.exports = merge(config, {
       'pages/**/*.vue',
       'plugins/**/*.js',
       'utils/**/*.js',
-      'nuxt.config.js'
-    ]
-  }
+      'nuxt.config.js',
+    ],
+  },
 });
