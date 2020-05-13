@@ -20,6 +20,7 @@
     "@nuxtjs/axios": "^5.10.3",
     "@nuxtjs/dotenv": "^1.4.1",
     "@nuxtjs/pwa": "^3.0.0-beta.20",
+    "@studiometa/js-toolkit": "^1.0.0-alpha.3",
     "nuxt": "^2.12.2",
     <%_ if (i18n) { _%>
     "nuxt-i18n": "^6.11.1",
