@@ -12,7 +12,7 @@ git clone <%= repository %>
 
 ``` bash
 # install dependencies
-$ npm run install
+$ npm install
 
 # serve with hot reload at http://localhost:3000
 $ npm run dev
@@ -24,8 +24,17 @@ $ npm run start
 # generate static project
 $ npm run generate
 
-# run test with Jest
-$ npm run test
+# lint scripts with ESLint
+$ npm run lint:scripts
+
+# lint styles with StyleLint
+$ npm run lint:styles
+
+# run unit tests with Jest
+$ npm run test:unit
+
+# run E2E tests with Cypress
+$ npm run test:e2e
 ```
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).

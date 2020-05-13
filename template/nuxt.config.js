@@ -1,7 +1,7 @@
 export default {
-  mode: 'spa',
-  /*
-   ** Headers of the page
+  mode: 'universal',
+  /**
+   * Headers of the page
    */
   head: {
     title: process.env.npm_package_name || '',
@@ -16,20 +16,20 @@ export default {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
-  /*
-   ** Customize the progress-bar color
+  /**
+   * Customize the progress-bar color
    */
   loading: { color: '#000' },
-  /*
-   ** Global CSS
+  /**
+   * Global CSS
    */
-  css: [],
-  /*
-   ** Plugins to load before mounting the App
+  css: ['~/assets/scss/app.scss'],
+  /**
+   * Plugins to load before mounting the App
    */
   plugins: ['~/plugins/vue-icon'],
-  /*
-   ** Nuxt.js dev-modules
+  /**
+   * Nuxt.js dev-modules
    */
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
@@ -41,8 +41,8 @@ export default {
     // Doc: https://github.com/Developmint/nuxt-svg-loader
     'nuxt-svg-loader',
   ],
-  /*
-   ** Nuxt.js modules
+  /**
+   * Nuxt.js modules
    */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
@@ -56,9 +56,9 @@ export default {
     'nuxt-i18n',
     <%_ } _%>
   ],
-  /*
-   ** Axios module configuration
-   ** See https://axios.nuxtjs.org/options
+  /**
+   * Axios module configuration
+   * See https://axios.nuxtjs.org/options
    */
   axios: {},
   /**
@@ -68,14 +68,7 @@ export default {
   tailwindcss: {
     configPath: '~/tailwind.config.js',
     cssPath: '~/assets/scss/app.scss',
-    purgeCSSInDev: false,
   },
-  /**
-   * Purge CSS configuration
-   * Note: the Purge CSS module is injected by the Tailwind CSS module.
-   * @see https://github.com/Developmint/nuxt-purgecss#options
-   */
-  purgeCSS: {},
   <%_ if (i18n) { _%>
   /**
    * i18n module configuration
@@ -83,12 +76,12 @@ export default {
    */
   i18n: {},
   <%_ } _%>
-  /*
-   ** Build configuration
+  /**
+   * Build configuration
    */
   build: {
-    /*
-     ** You can extend webpack config here
+    /**
+     * You can extend webpack config here
      */
     // extend(config, ctx) {},
     extractCSS: true,
