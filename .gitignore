@@ -19,3 +19,7 @@ yarn-error.log*
 /template/dist/
 /template/package*.json
 /template/static/sw*
+
+# Cypress artifacts
+/template/tests/e2e/screenshots
+/template/tests/e2e/videos

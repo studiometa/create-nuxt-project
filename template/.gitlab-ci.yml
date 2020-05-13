@@ -1,13 +1,168 @@
 stages:
-- test
+- Install dependencies
+- Code Quality
+- Tests
 
-# Test
-test:
-  stage: test
-  image: node:10
+# to cache both npm modules and Cypress binary we use environment variables
+# to point at the folders we can list as paths in "cache" job settings
+variables:
+  npm_config_cache: "$CI_PROJECT_DIR/.npm"
+  CYPRESS_CACHE_FOLDER: "$CI_PROJECT_DIR/.cache/Cypress"
+
+# cache using branch name
+# https://gitlab.com/help/ci/caching/index.md
+cache: &global_cache
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - .npm
+    - .cache/Cypress
+    - node_modules
+  policy: pull-push
+
+
+########################################################################
+#  BEGIN INSTALL                                                       #
+########################################################################
+
+NPM Install:
+  stage: Install dependencies
+  image: node:12
   cache:
-    paths:
-    - node_modules/
+    <<: *global_cache
   script:
-  - npm ci
-  - npm run test
+    - npm ci
+  only:
+    refs:
+      - merge_requests
+
+########################################################################
+#  END INSTALL                                                         #
+########################################################################
+
+
+########################################################################
+#  BEGIN CODE QUALITY                                                  #
+########################################################################
+
+ESLint:
+  stage: Code Quality
+  image: node:12
+  cache:
+    <<: *global_cache
+    policy: pull
+  only:
+    refs:
+      - merge_requests
+    changes:
+      - .gitlab-ci.yml
+      - "tests/unit/**/*.js"
+      - "components/**/*.vue"
+      - "layouts/**/*.vue"
+      - "pages/**/*.vue"
+      - "assets/**/*.js"
+      - "middleware/**/*.js"
+      - "plugins/**/*.js"
+      - "store/**/*.js"
+      - "utils/**/*.js"
+  script:
+    - npm run lint:scripts
+
+StyleLint:
+  stage: Code Quality
+  image: node:12
+  cache:
+    <<: *global_cache
+    policy: pull
+  only:
+    refs:
+      - merge_requests
+    changes:
+      - .gitlab-ci.yml
+      - "components/**/*.vue"
+      - "layouts/**/*.vue"
+      - "pages/**/*.vue"
+      - "assets/**/*.scss"
+  script:
+    - npm run lint:styles
+
+
+########################################################################
+#  END CODE QUALITY                                                    #
+########################################################################
+
+
+########################################################################
+#  BEGIN TESTS                                                         #
+########################################################################
+
+Unit:
+  stage: Tests
+  image: node:12
+  cache:
+    <<: *global_cache
+    policy: pull
+  only:
+    refs:
+      - merge_requests
+    changes:
+      - package.json
+      - package-lock.json
+      - .gitlab-ci.yml
+      - jest.config.js
+      - nuxt.config.js
+      - "tests/unit/**/*.js"
+      - "components/**/*.vue"
+      - "layouts/**/*.vue"
+      - "pages/**/*.vue"
+      - "assets/**/*.scss"
+      - "assets/**/*.svg"
+      - "assets/**/*.js"
+      - "middleware/**/*.js"
+      - "plugins/**/*.js"
+      - "store/**/*.js"
+      - "utils/**/*.js"
+  script:
+    - npm run test:unit
+
+E2E:
+  stage: Tests
+  image: cypress/base:12.8.1
+  cache:
+    <<: *global_cache
+    policy: pull
+  only:
+    refs:
+      - merge_requests
+    changes:
+      - package.json
+      - package-lock.json
+      - .gitlab-ci.yml
+      - cypress.config.js
+      - nuxt.config.js
+      - "tests/e2e/**/*.js"
+      - "components/**/*.vue"
+      - "layouts/**/*.vue"
+      - "pages/**/*.vue"
+      - "assets/**/*.scss"
+      - "assets/**/*.svg"
+      - "assets/**/*.js"
+      - "middleware/**/*.js"
+      - "plugins/**/*.js"
+      - "store/**/*.js"
+      - "utils/**/*.js"
+  before_script:
+    - npm install http-server
+    - npm run generate
+    - node_modules/.bin/http-server --silent --port 3000 dist &
+  script:
+    - npm run test:e2e
+  artifacts:
+    when: always
+    paths:
+      - tests/e2e/videos/
+      - tests/e2e/screenshots/
+    expire_in: 1 day
+
+########################################################################
+#  END TESTS                                                           #
+########################################################################

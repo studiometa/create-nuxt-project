@@ -7,7 +7,6 @@ module.exports = {
       type: 'string',
       message: 'Project name',
       default: 'www.fqdn.com',
-      store: true,
     },
     {
       name: 'description',
@@ -62,6 +61,7 @@ module.exports = {
           '*.DS_Store': false,
           '/node_modules/*': false,
           '/vendor/*': false,
+          '.gitlab-ci.yml': this.answers.hub.includes('gitlab.com'),
         },
         templateDir: 'template',
       },
@@ -75,22 +75,17 @@ module.exports = {
     ];
 
     // Remove GitLab of Github files based on the selected hub
-    if (this.answers.hub.includes('gitlab.com')) {
-      actions.push({
-        type: 'remove',
-        files: '_github/',
-      });
-    } else {
-      actions.push({
-        type: 'remove',
-        files: '.gitlab-ci.yml',
-      });
-
+    if (this.answers.hub.includes('github.com')) {
       actions.push({
         type: 'move',
         patterns: {
           _github: '.github',
         },
+      });
+    } else {
+      actions.push({
+        type: 'remove',
+        files: '_github/',
       });
     }
 

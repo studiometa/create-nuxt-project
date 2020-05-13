@@ -1,6 +1,6 @@
 # Create Nuxt Project
 
-[![NPM Version](https://img.shields.io/npm/v/@studiometa/create-nuxt-project/alpha.svg?style=flat-square)](https://www.npmjs.com/package/@studiometa/create-nuxt-project)
+[![NPM Version](https://img.shields.io/npm/v/@studiometa/create-nuxt-project.svg?style=flat-square)](https://www.npmjs.com/package/@studiometa/create-nuxt-project)
 [![Dependency Status](https://img.shields.io/david/studiometa/create-nuxt-project.svg?label=deps&style=flat-square)](https://david-dm.org/studiometa/create-nuxt-project)
 [![devDependency Status](https://img.shields.io/david/dev/studiometa/create-nuxt-project.svg?label=devDeps&style=flat-square)](https://david-dm.org/studiometa/create-nuxt-project?type=dev)
 
@@ -11,7 +11,7 @@
 Run the following command to bootstrap a WordPress project using Studio Meta's tools and workflows:
 
 ```bash
-npx @studiometa/create-nuxt-project@alpha <project-name>
+npx @studiometa/create-nuxt-project <project-name>
 ```
 
 ## Documentation

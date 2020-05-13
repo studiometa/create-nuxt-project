@@ -8,6 +8,6 @@ localVue.component('vue-icon', VueIcon);
 describe('Logo', () => {
   test('is a Vue instance', () => {
     const wrapper = shallowMount(Logo, { localVue });
-    expect(wrapper.isVueInstance()).toBeTruthy();
+    expect(wrapper.constructor.name).toBe('VueWrapper');
   });
 });

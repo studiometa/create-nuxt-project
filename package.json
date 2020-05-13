@@ -1,6 +1,6 @@
 {
   "name": "@studiometa/create-nuxt-project",
-  "version": "1.0.0-alpha.2",
+  "version": "1.0.0",
   "description": "A generator to kickstart your Nuxt project in a few seconds! ⚡",
   "bin": "cli.js",
   "files": [
@@ -35,7 +35,7 @@
   "dependencies": {
     "cac": "^6.5.2",
     "chalk": "^2.4.2",
-    "sao": "^1.6.1",
+    "sao": "^1.7.1",
     "slugify": "^1.3.4"
   },
   "devDependencies": {
