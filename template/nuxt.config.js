@@ -51,8 +51,10 @@ export default {
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
+    <%_ if (i18n) { _%>
     // Doc: https://nuxt-community.github.io/nuxt-i18n/
     'nuxt-i18n',
+    <%_ } _%>
   ],
   /**
    * Axios module configuration
@@ -67,11 +69,13 @@ export default {
     configPath: '~/tailwind.config.js',
     cssPath: '~/assets/scss/app.scss',
   },
+  <%_ if (i18n) { _%>
   /**
    * i18n module configuration
    * @see https://nuxt-community.github.io/nuxt-i18n/options-reference.html
    */
   i18n: {},
+  <%_ } _%>
   /**
    * Build configuration
    */
